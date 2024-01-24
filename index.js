@@ -77,7 +77,7 @@ function llenarLista(name, sprite, id) {
 
     let cardTitle = document.createElement('h5');
     cardTitle.classList.add('card-title');
-    cardTitle.textContent = ` ${id} ${name}`;
+    cardTitle.textContent = ` ${id} ${name.toUpperCase()}`;
 
 
     
