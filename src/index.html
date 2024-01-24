@@ -13,11 +13,23 @@
     </head>
     <body>
         <!--navbar-->
-        <nav class="navbar bg-body-tertiary">
-              <a class="navbar-brand" href="#">
-                <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/pokemon-23-logo.png" alt="Bootstrap" height="50">
-              </a>
-          </nav>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a  href="index.html"><img src="../img/logo.png" height="40"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="list.html">Listado</a>
+                </li>
+               
+              </ul>
+        
+            </div>
+          </div>
+        </nav>
           <!--contenido-->
           <div class="container-xl contenedor">
             <div class="imagen_pokemon">
@@ -28,7 +40,6 @@
 
                 </div>
                 <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">Pokemon</span>
                   <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="inputPokemon">
                   <button type="button" class="btn btn-primary" id="buscar">buscar</button>
                 </div>
@@ -42,7 +53,7 @@
 
 
           <footer>
-            <i class="bi bi-whatsapp">ARF_CODE</i>
+            <i class="bi bi-person-square"><a href="https://seba2311.github.io/CV/">SEBASTIAN</a></i>
           </footer>
 
 

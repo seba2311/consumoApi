@@ -3,6 +3,7 @@ import {getPokemon} from './api'
 
 
 obtenerPokemon();
+listarPokemones();
 
 //quitar actualizacion con enter
 $('#inputPokemon').keypress(function(e){
@@ -28,6 +29,7 @@ $('#buscar').on('click', ()=>{
         window.location.reload();
     })
 })
+// obtener pokemon random
 function obtenerPokemon() {
     let random = numeroRandom(150)+1;
     let pokemon= getPokemon(random);
@@ -39,6 +41,55 @@ function obtenerPokemon() {
     })
    
 }
+
+// listar pokemones
+function listarPokemones() {
+    let numero = 1;
+    for(let i=0; i<151; i++){
+        numero=i;
+        let pokemon= getPokemon(numero);
+        pokemon.then((res)=>res.json())
+        .then((res2)=>{
+            console.log(res2);
+            let{name, sprites, id} = res2;
+            llenarLista(name, sprites.front_default, id);
+            
+        })
+    }
+    
+}
+
+
+function llenarLista(name, sprite, id) {
+    let listaPokemones = document.getElementById('listaPokemones');
+
+    let card = document.createElement('div');
+    card.classList.add('card');
+    card.style.width = '18rem';
+
+    let image = document.createElement('img');
+    image.src = sprite;
+    image.classList.add('card-img-top');
+    image.alt = name;
+
+    let cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+
+    let cardTitle = document.createElement('h5');
+    cardTitle.classList.add('card-title');
+    cardTitle.textContent = ` ${id} ${name}`;
+
+
+    
+
+    cardBody.appendChild(cardTitle);
+    card.appendChild(image);
+    card.appendChild(cardBody);
+
+    listaPokemones.appendChild(card);
+}
+
+
 
 //funcion numero random
 
@@ -59,7 +110,7 @@ function llenarInformacion(name, sprites, stats,types){
 
     for(let i=0 ; i<stats.length; i++){
         tabla+=(`<tr>`)
-        tabla+=(`<td> ${stats[i].stat.name} </td>`)
+        tabla+=(`<td> ${stats[i].stat.name.toUpperCase()} </td>`)
         tabla+=(`<td> ${stats[i].base_stat} </td>`)
         tabla+=(`</tr>`)
     }
@@ -68,7 +119,7 @@ function llenarInformacion(name, sprites, stats,types){
 
     let tabla2=(`<table class="table"> <tr><td class="negrillas"> TYPES </td>`)
     for(let i=0 ; i<types.length; i++){
-        tabla2+=(`<td> ${types[i].type.name} </td>`)
+        tabla2+=(`<td> ${types[i].type.name.toUpperCase()} </td>`)
     }
     tabla2+=(`</tr></table>`)
     div.append(tabla2);

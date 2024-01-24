@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"4rkIz":[function(require,module,exports) {
+})({"cEvnw":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -584,6 +584,7 @@ var _jquery = require("jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
 var _api = require("./api");
 obtenerPokemon();
+listarPokemones();
 //quitar actualizacion con enter
 (0, _jqueryDefault.default)("#inputPokemon").keypress(function(e) {
     if (e.keyCode == 13) {
@@ -604,6 +605,7 @@ obtenerPokemon();
         window.location.reload();
     });
 });
+// obtener pokemon random
 function obtenerPokemon() {
     let random = numeroRandom(150) + 1;
     let pokemon = (0, _api.getPokemon)(random);
@@ -612,6 +614,38 @@ function obtenerPokemon() {
         let { name, sprites, stats, types } = res2;
         llenarInformacion(name, sprites, stats, types);
     });
+}
+// listar pokemones
+function listarPokemones() {
+    let numero = 1;
+    for(let i = 0; i < 151; i++){
+        numero = i;
+        let pokemon = (0, _api.getPokemon)(numero);
+        pokemon.then((res)=>res.json()).then((res2)=>{
+            console.log(res2);
+            let { name, sprites, id } = res2;
+            llenarLista(name, sprites.front_default, id);
+        });
+    }
+}
+function llenarLista(name, sprite, id) {
+    let listaPokemones = document.getElementById("listaPokemones");
+    let card = document.createElement("div");
+    card.classList.add("card");
+    card.style.width = "18rem";
+    let image = document.createElement("img");
+    image.src = sprite;
+    image.classList.add("card-img-top");
+    image.alt = name;
+    let cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+    let cardTitle = document.createElement("h5");
+    cardTitle.classList.add("card-title");
+    cardTitle.textContent = ` ${id} ${name}`;
+    cardBody.appendChild(cardTitle);
+    card.appendChild(image);
+    card.appendChild(cardBody);
+    listaPokemones.appendChild(card);
 }
 //funcion numero random
 function numeroRandom(max) {
@@ -627,14 +661,14 @@ function llenarInformacion(name, sprites, stats, types) {
     let tabla = `<table class="table"> <tr><td class="negrillas"> ${name.toUpperCase()} </td></tr>`;
     for(let i = 0; i < stats.length; i++){
         tabla += `<tr>`;
-        tabla += `<td> ${stats[i].stat.name} </td>`;
+        tabla += `<td> ${stats[i].stat.name.toUpperCase()} </td>`;
         tabla += `<td> ${stats[i].base_stat} </td>`;
         tabla += `</tr>`;
     }
     tabla += `</table>`;
     div.append(tabla);
     let tabla2 = `<table class="table"> <tr><td class="negrillas"> TYPES </td>`;
-    for(let i = 0; i < types.length; i++)tabla2 += `<td> ${types[i].type.name} </td>`;
+    for(let i = 0; i < types.length; i++)tabla2 += `<td> ${types[i].type.name.toUpperCase()} </td>`;
     tabla2 += `</tr></table>`;
     div.append(tabla2);
     let imagen = document.getElementById("pokemon_img");
@@ -7387,6 +7421,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["4rkIz","8lqZg"], "8lqZg", "parcelRequire064f")
+},{}]},["cEvnw","8lqZg"], "8lqZg", "parcelRequire064f")
 
 //# sourceMappingURL=index.975ef6c8.js.map

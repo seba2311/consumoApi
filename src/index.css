@@ -1,5 +1,5 @@
 nav{
-    height: 50px;
+    background-color: green;
 }
 
 footer{
@@ -17,6 +17,7 @@ color: white;
 footer i{
     font-weight: 700;
     cursor: pointer;
+    
 }
 
 footer i:hover{
@@ -35,6 +36,8 @@ footer i:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 20px;
+    margin-top: 10PX;
 }
 .informacion_pokemon{
     width: 100%;
@@ -43,13 +46,26 @@ footer i:hover{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 20px;
+    margin-top: 10PX;
+    
 }
+
+.card_pokemon {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: calc(5 * 200px);
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
 
 
 .datos_pokemon{
     background-color: white;
     width: 70%;
-    height: 80%;
+    
     border-radius: 20px;
     box-shadow: 0 0 5px gray;
     padding: 10px;
