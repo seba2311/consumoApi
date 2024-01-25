@@ -7,7 +7,7 @@
     "preinstall": "npm install -g parcel-bundler",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "build": "parcel build --public-url . src/index.html --out-dir build"
+    "build": "parcel build --public-url . index.html --out-dir build"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "jquery": "^3.7.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "parcel": "^2.11.0"
   }
 }
