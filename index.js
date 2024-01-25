@@ -1,4 +1,4 @@
-import $ from './node_modules/jquery/dist/jquery.min.js';
+import $ from './node_modules/jquery';
 import {getPokemon} from './api'
 
 
