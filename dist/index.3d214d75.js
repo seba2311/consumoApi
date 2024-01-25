@@ -580,7 +580,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"bB7Pu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _jquery = require("jquery");
+var _jquery = require("./node_modules/jquery/dist/jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
 var _api = require("./api");
 obtenerPokemon();
@@ -675,7 +675,52 @@ function llenarInformacion(name, sprites, stats, types) {
     imagen.src = sprites.other.dream_world.front_default;
 }
 
-},{"jquery":"hgMhh","./api":"eqUwj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hgMhh":[function(require,module,exports) {
+},{"./api":"eqUwj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./node_modules/jquery/dist/jquery":"hgMhh"}],"eqUwj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getPokemon", ()=>getPokemon);
+var _url = require("./url");
+function getPokemon(parametro) {
+    return fetch((0, _url.api_pokemon) + parametro);
+}
+
+},{"./url":"5XXXH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5XXXH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "api_pokemon", ()=>api_pokemon);
+const api_pokemon = "https://pokeapi.co/api/v2/pokemon/";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"hgMhh":[function(require,module,exports) {
 /*!
  * jQuery JavaScript Library v3.7.1
  * https://jquery.com/
@@ -7375,51 +7420,6 @@ function llenarInformacion(name, sprites, stats, types) {
     if (typeof noGlobal === "undefined") window1.jQuery = window1.$ = jQuery;
     return jQuery;
 });
-
-},{}],"eqUwj":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getPokemon", ()=>getPokemon);
-var _url = require("./url");
-function getPokemon(parametro) {
-    return fetch((0, _url.api_pokemon) + parametro);
-}
-
-},{"./url":"5XXXH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5XXXH":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "api_pokemon", ()=>api_pokemon);
-const api_pokemon = "https://pokeapi.co/api/v2/pokemon/";
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
 
 },{}]},["ha8hf","bB7Pu"], "bB7Pu", "parcelRequire064f")
 
